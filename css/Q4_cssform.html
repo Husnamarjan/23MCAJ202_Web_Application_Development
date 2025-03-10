@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: white;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            button {
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 48%;
+            }
+            .reset {
+                background: #ccc;
+            }
+            .submit {
+                background: #28a745;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Form</h1>
+            <form action="">
+            <label for="fname">Enter name :</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter your name">
+            <br><br>
+            <label for="email">Enter email :</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email">
+            <br><br>
+            <label for="phone">Enter phone :</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone">
+            <br><br>
+            <label for="pswd">Enter password :</label>
+            <input type="password" id="pswd" name="pswd">
+            <br><br>
+            <label for="qualification">Select Qualification:</label>
+            <select id="qualification" name="qualification">
+                <option value="highschool">High School</option>
+                <option value="highersecondary">Higher Secondary</option>
+                <option value="ug">UG</option>
+                <option value="pg">PG</option>
+            </select>
+            <br><br>
+            <label for="gender">Select Gender:</label>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender">
+            <label for="other">Other</label>
+            <br><br>
+            <label for="message">Message:</label>
+            <textarea name="message" rows="5" cols="50" placeholder="Enter your message"></textarea>
+            <br><br>
+            <label for="dob">Date of birth:</label>
+            <input type="date" id="dob" name="dob">
+            <br><br>
+            <label for="resume">Upload a resume:</label>
+            <input type="file" id="resume" name="resume">
+            <br><br>
+            <label for="color">Choose your favourite color</label>
+            <input type="color" id="color" name="color" value="#FF0000">
+            <br><br>
+            <label for="subscribe">Subscribe to newsletter</label>
+            <input type="checkbox" id="subscribe" name="subscribe">
+            <br><br>
+            <input type="reset" id="reset" name="reset">
+            <input type="submit" id="submit" name="submit">
+        </form>
+    <body>
+</html>
