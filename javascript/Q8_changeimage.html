@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover to Change Image and Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 500px;
+            height: 500px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="text">Hover over the image to see the change!</h2>
+    <img id="image" src="tkmcollege.jpeg" alt="Original Image"
+        onmouseover="changeContent()" onmouseout="resetContent()">
+
+    <script>
+        function changeContent() {
+            document.getElementById("image").src = "tkmcollege2.jpeg";
+            document.getElementById("text").innerText = "Another view of tkmce";
+        }
+
+        function resetContent() {
+            document.getElementById("image").src = "tkmcollege.jpeg";
+            document.getElementById("text").innerText = "Hover over the image to see another view of tkmce";
+        }
+    </script>
+</body>
+</html>

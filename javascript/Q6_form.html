@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Registration Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+        }
+        .container { 
+            width: 350px; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            text-align: center;
+        }
+        h2 {
+            text-align: center; 
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block; 
+            margin-top: 10px;
+            text-align: left;
+        }
+        input { 
+            width: 100%; 
+            padding: 8px; 
+            margin: 5px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            display: block;
+        }
+        .error { 
+            color: red; 
+            font-size: 12px;
+            display: block; 
+            margin-top: 5px;
+            text-align: center; /* Centering the validation messages */
+        }
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin-top: 10px;
+        }
+        button:hover { 
+            background: #218838; 
+        }
+        .success { 
+            color: green; 
+            font-size: 16px; 
+            font-weight: bold; 
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registrationForm" autocomplete="off">
+            <label>Username:</label>
+            <input type="text" id="username">
+            <span class="error" id="usernameError"></span>
+
+            <label>Email:</label>
+            <input type="text" id="email">
+            <span class="error" id="emailError"></span>
+
+            <label>Password:</label>
+            <input type="password" id="password">
+            <span class="error" id="passwordError"></span>
+
+            <label>Confirm Password:</label>
+            <input type="password" id="confirmPassword">
+            <span class="error" id="confirmPasswordError"></span>
+
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+        <p id="successMessage" class="success"></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            
+            // Clear previous messages
+            document.getElementById("usernameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("confirmPasswordError").innerText = "";
+            document.getElementById("successMessage").innerText = "";
+
+            let username = document.getElementById("username").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+            
+            // Username validation
+            if (username === "") {
+                document.getElementById("usernameError").innerText = "Username is required";
+                isValid = false;
+            }
+
+            // Email validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Invalid email format";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                isValid = false;
+            }
+
+            // Confirm Password validation
+            if (confirmPassword === "") {
+                document.getElementById("confirmPasswordError").innerText = "Please confirm your password";
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
+                isValid = false;
+            }
+
+            // If all validations pass
+            if (isValid) {
+                document.getElementById("successMessage").innerText = "Registration Successful!";
+                document.getElementById("registrationForm").reset();
+            }
+        }
+    </script>
+</body>
+</html>
